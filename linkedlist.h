@@ -1,5 +1,8 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
+#include <vector>
+#include <iostream>
+
 class linkedlist
 {
 public:
@@ -13,6 +16,7 @@ public:
     void print();
     void push_back(int a);
     int size = 0;
+    std::vector<int> toVector();
 };
 
 #endif // LINKEDLIST_H

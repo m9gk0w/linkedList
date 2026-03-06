@@ -1,6 +1,4 @@
 #include "linkedlist.h"
-#include <iostream>
-
 
 void linkedlist::print()
 {
@@ -27,6 +25,17 @@ void linkedlist::push_back(int a)
         curr = curr->next;
     }
     curr->next = new Node(a);
+}
+
+std::vector<int> linkedlist::toVector()
+{
+    std::vector<int> result;
+    Node* current = head;
+    while (current != nullptr) {
+        result.push_back(current->val);
+        current = current->next;
+    }
+    return result;
 }
 
 linkedlist::Node::Node(int a)
