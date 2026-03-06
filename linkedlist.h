@@ -8,15 +8,20 @@ class linkedlist
 public:
     class Node{
     public:
-        Node* next = nullptr;
+        Node* next;
         int val;
-        Node(int a);
+        Node(int a) : val(a), next(nullptr) {};
     };
-    Node *head = new Node(0);
+    linkedlist(): head(nullptr), size_(0) {};
     void print();
     void push_back(int a);
-    int size = 0;
+    int size() {return size_;}
     std::vector<int> toVector();
+    void pop_back();
+    private:
+        int size_ = 0;
+        Node *head;
+
 };
 
 #endif // LINKEDLIST_H

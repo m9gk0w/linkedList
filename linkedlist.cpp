@@ -11,20 +11,19 @@ void linkedlist::print()
 
 void linkedlist::push_back(int a)
 {
-    size++;
-    Node* curr = head;
-    if (size == 1){
-        curr->val = a;
-        return;
+    Node* newNode = new Node(a);
+    if (head == nullptr) {
+        // Список пуст – новый узел становится головой
+        head = newNode;
+    } else {
+        // Ищем последний узел
+        Node* curr = head;
+        while (curr->next != nullptr) {
+            curr = curr->next;
+        }
+        curr->next = newNode;
     }
-    if (size == 2){
-        curr->next = new Node(a);
-        return;
-    }
-    while(curr->next!=nullptr){
-        curr = curr->next;
-    }
-    curr->next = new Node(a);
+    ++size_;
 }
 
 std::vector<int> linkedlist::toVector()
@@ -38,7 +37,26 @@ std::vector<int> linkedlist::toVector()
     return result;
 }
 
-linkedlist::Node::Node(int a)
+void linkedlist::pop_back()
 {
-    val = a;
+    if (head == nullptr) {
+        return;
+    }
+
+    if (head->next == nullptr) {
+        delete head;
+        head = nullptr;
+        size_ = 0;
+        return;
+    }
+
+    Node* curr = head;
+    while (curr->next->next != nullptr) {
+        curr = curr->next;
+    }
+
+    Node* toDelete = curr->next;
+    delete toDelete;
+    curr->next = nullptr;
+    --size_;
 }
