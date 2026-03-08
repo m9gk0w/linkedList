@@ -13,10 +13,8 @@ void linkedlist::push_back(int a)
 {
     Node* newNode = new Node(a);
     if (head == nullptr) {
-        // Список пуст – новый узел становится головой
         head = newNode;
     } else {
-        // Ищем последний узел
         Node* curr = head;
         while (curr->next != nullptr) {
             curr = curr->next;
