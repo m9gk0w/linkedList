@@ -26,6 +26,21 @@ void linkedlist::push_back(int a)
     ++size_;
 }
 
+void linkedlist::push_front(int a)
+{
+    Node* newNode = new Node(a);
+    newNode->next = head;
+    head = newNode;
+}
+
+void linkedlist::pop_front()
+{
+    Node* newNode = head->next;
+    delete head;
+    head = newNode;
+
+}
+
 std::vector<int> linkedlist::toVector()
 {
     std::vector<int> result;

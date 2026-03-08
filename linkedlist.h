@@ -15,9 +15,12 @@ public:
     linkedlist(): head(nullptr), size_(0) {};
     void print();
     void push_back(int a);
+    void pop_back();
+    void push_front(int a);
+    void pop_front();
     int size() {return size_;}
     std::vector<int> toVector();
-    void pop_back();
+
     private:
         int size_ = 0;
         Node *head;
