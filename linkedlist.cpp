@@ -40,6 +40,23 @@ void linkedlist::pop_front()
     size_--;
 }
 
+void linkedlist::insert(int val, int index)
+{
+    Node* newNode = new Node(val);
+    Node* curr = head;
+    Node* help = head;
+    for (int i = 0; i < index -1; i++){ // 52->24->82->28
+                                     // insert (55, 2)
+        curr = curr->next;           // 52->24->55->82->28
+        help = help->next;
+    }
+    help = help->next;
+    curr->next = newNode;
+    newNode->next = help;
+
+
+}
+
 std::vector<int> linkedlist::toVector()
 {
     std::vector<int> result;
