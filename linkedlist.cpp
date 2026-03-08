@@ -42,6 +42,9 @@ void linkedlist::pop_front()
 
 void linkedlist::insert(int val, int index)
 {
+    if (index > size_+1){
+        return;
+    }
     Node* newNode = new Node(val);
     Node* curr = head;
     Node* help = head;

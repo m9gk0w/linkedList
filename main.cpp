@@ -9,7 +9,7 @@ int main()
     z.push_back(24);
     z.push_back(82);
     z.push_back(28);
-    z.insert(55, 2);
+    z.insert(55, 4);
     z.print();
     return 0;
 }
